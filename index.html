@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>9.12</title>
+</head>
+<body>
+	<script>
+		
+		// function Student(name,age,sex){
+  //          this.name=name;
+  //          this.age=age;
+  //          this.sex=sex;
+  //          this.say=function(){
+  //          	alert(2);
+  //          }
+
+		// }
+		// let zhangsan=new Student('zhangsan',22,'nan');
+		// let lisi=new Student('lisi',25,'nv');
+		// console.log(zhangsan);
+		// console.log(lisi);
+
+		// function shouji(width,height,name,color,price){
+		// 	this.width= width;
+		// 	this.height=height;
+		// 	this.name=name;
+		// 	this.color=color;
+		// 	this.price=price;
+		// 	this.gongn=function(){
+		// 		alert('zhaoxiang');
+		// 	}
+  //       }
+		// let iphone8=new shouji(60,120,'white','iphone8',3600);
+		// console.log(iphone8);
+		// iphone8.gongn();
+		
+		// //遍历    for in
+		// for(let i in iphone8){
+		// 	console.log(`${i}:${iphone8[i]}`)
+		// }
+
+
+  //       //json创建方式
+		// let wangwu={
+		// 	'age':25,
+		// 	'sex':'nan',
+		// 	'name':'wangwu',
+		// 	say:function(){
+		// 		alert(1);
+		// 	}
+		// };
+		// console.log(wangwu);
+		// wangwu.say();
+		// console.log(wangwu.constructor);
+        
+
+  //       //json创建方式
+		// let liqi={};
+		// liqi.age=22;
+		// liqi.name='liqi';
+		// liqi.sex='nan';
+		// liqi.sleep=function(){
+		// 	alert('睡覺');
+		// }
+		// console.log(liqi);
+		// liqi.sleep();
+
+
+		// //class创建方法
+		// class Students{
+		// 	constructor(){
+		// 		this.name='zhangliu';
+		// 		this.age=20;
+  //               this.sex='nv'
+		// 	}
+		// 	study(){
+		// 		alert('学习');      //es6中新语法
+		// 	}
+		// }
+		// let zhangliu=new Students();
+		// zhangliu.study();
+		// console.log(zhangliu); 
+
+		// class Class{
+		// 	constructor(name,mingc){
+		// 		this.name=name;
+		// 		this.mingc=mingc;
+  //               this.xuesheng=80;
+		// 	}
+		// 	study(){
+		// 		alert('学习');     
+		// 	}
+		// }
+		// let class1=new Class('qianduan','wuif1707');
+		// class1.study();
+		// console.log(class1);
+
+
+  //       function Person(name,age,sex){
+  //       	this[1]='a';
+  //       	this[2]='b';
+  //       	this.name=name;
+  //       	this.sex=sex;
+  //       	this.brain=`${this.name}脑子`;
+  //       	this.age=age;
+  //       	this.study=function(){
+  //       		alert(this.brain);
+  //       	}
+  //       }
+  //       let zhaoer=new Person('zhaoer',25,'nan');
+  //       console.log(zhaoer);
+  //       zhaoer.study();
+
+
+
+        //数组
+        function myArray(){
+        	for(let i=0;i<arguments.length;i++){
+        		this[i]=arguments[i];
+        	}
+        	this.length=arguments.length;
+
+        	this.push=function(){
+        	   for(let i=0;i<arguments.length;i++){
+        		this[this.length]=arguments[i];
+        		this.length++;
+        	   }	
+        	}
+        	this.indexOf = function(num){
+                for(let i=0;i<this.length;i++){
+                      if(this[i]==num){
+                      	return i;
+                      }
+                }
+                return -1;
+        	}
+        	this.lastIndexOf= function(num){
+        		for(let i=this.length-1;i>=0;i--){
+        			if(this[i]==num){
+                      	return i;
+                      }
+        		}
+        		return -1;
+        	}
+        	this.some=function(fn){
+                for(let i=0;i<this.length;i++){
+                	if(fn(this[i])){
+                		return true;
+                	}
+                }
+                return false;
+        	}
+        	this.every=function(fn){
+                for(let i=0;i<this.length;i++){
+                	if(!fn(this[i])){
+                		return false ;
+                	}
+                }
+                return true;
+        	}
+        	this.reverse =function(){
+        		let arr1=new myArray();
+        		for(let i=this.length-1;i>=0;i--){
+                      arr1.push(this[i]);
+        		}
+                return arr1;
+        	}
+        	this.filter=function(fn){
+        		let arr2=new myArray();
+        		for(let i=0;i<this.length;i++){
+        			if(fn(this[i])){
+                     arr2.push(this[i]);
+        			}
+        		}
+        		return arr2;
+        	}
+        	this.map=function(fn){
+        		let arr3=new myArray();
+        		for(let i=0;i<this.length;i++){
+        			 arr3.push(fn(this[i]));
+        		}
+        		return arr3;
+        	}
+        	this.join=function(num){
+        		if(num==undefined){
+        			num='-';
+        		}else{
+        			num=num;
+        		}
+        		var r='';
+        	    for(var i=0;i<this.length;i++){
+                    if(i<this.length-1){
+                 	r+=this[i]+num;
+                    }else{
+               	    r+=this[i];
+                    }
+        	   }
+        	return r;
+        	}
+        	this.sortdown=function(){
+        		for(let i=0;i<this.length;i++){
+        			for(let j=i+1;j<this.length;j++){
+        			    if(this[j]>this[i]){
+        				   let t=this[i];
+        				   this[i]=this[j];
+        				   this[j]=t;
+        			    }	
+        			}
+        			
+        		}
+        	}
+        	this.sortup=function(){
+        		for(let i=0;i<this.length;i++){
+        			for(let j=i+1;j<this.length;j++){
+        			    if(this[j]<this[i]){
+        				   let t=this[i];
+        				   this[i]=this[j];
+        				   this[j]=t;
+        			    }	
+        			}
+        			
+        		}
+        	}
+        	this.include=function(value){
+                for(let i=0;i<this.length;i++){
+                	if(this[i]==value){
+                		return true;
+                	}
+                }
+                return false;  
+        	}
+        	this.delNull=function(){
+        		let newarr=new myArray();
+        		for(let i=0;i<this.length;i++){
+        			if(this[i]!=undefined){
+        				newarr.push(this[i]);
+        			}
+        		}
+        		return newarr;
+        	}
+        }
+        let arr=new myArray('a','b','c','d',undefined,1,2,5,undefined,8,7);
+        console.log(arr);
+        //arr.push('x','y','z');
+        let result = arr.indexOf('b');
+        console.log(result);
+        let result1 = arr.lastIndexOf('b');
+        console.log(result1);
+        let result2 =arr.some(function(value){
+        	return typeof value=='number';
+        })
+        console.log(result2);
+        let result3 =arr.every(function(value){
+         	return typeof value=='number';
+        })
+        console.log(result3);
+        let result4 = arr.reverse();
+        console.log(result4);
+        let result5 =arr.filter(function(num){
+        	return (typeof num=='number'&&  num>1);
+        })
+        console.log(result5);
+        let result6=arr.map(function(value){
+        	return value*2;
+        })
+        console.log(result6);
+        let result7=arr.join();
+        console.log(result7);
+        arr.sortdown();
+        //arr.sortup();
+        let result8=arr.include(77);
+        console.log(result8);
+        let result9=arr.delNull();
+        console.log(result9);
+		//prototype
+	</script>
+</body>
+</html>
