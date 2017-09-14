@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>9.13</title>
+</head>
+<body>
+	<script>
+		// function Person(){
+		// 	this.name='zhangsan';
+		// 	this.age='20';
+		// 	this.sex='nan';
+		// 	this.say=function(){
+		// 		alert(this.name);
+		// 	}
+			
+  //       }
+  //       //属性 原型 对象 方法后加逗号 
+		// Person.prototype={
+		//          sleep:function(){
+		//          	alert('休息')
+		//          },                
+		//       //    say:function(){
+		// 		    // alert(this.name);
+		// 	     // },
+		// 	     play:function(){
+		// 		    alert(`${this.name}玩儿`);
+		// 	     },
+		// 	     son:function(){
+
+		// 	     }
+		// }
+		// Person.prototype.eat=function(){
+		// 	alert('eat')
+		// }
+		// let zhangsan = new Person();
+		// let lisi = new Person();
+		// console.log(zhangsan.say==lisi.say)   //true
+		// console.log(zhangsan.play==lisi.play)   //true
+		// console.log(zhangsan.say()==lisi.say())   //true
+		// console.log([]==[])   //false
+		// lisi.eat();
+		// zhangsan.eat();
+		// alert(zhangsan.age);
+		// delete zhangsan.age;  //删除属性
+  //       alert(zhangsan.age);
+  //       console.log(zhangsan);
+  //       alert(zhangsan.say());
+		// delete zhangsan.say;  //删除属性
+  //       console.log(zhangsan.say);
+  //       console.log(zhangsan);
+  //       delete Person.prototype.son;
+  //       console.log(zhangsan);
+
+  //       function Student(){
+  //       	this.name='student';
+  //       }
+  //       function Teacher(){
+  //       	this.name='teacher';
+  //       }
+  //       let zhangsan1 = new Student();
+  //       let lisi1 = new Teacher();
+  //       //判断这个对象是否从某个构造函数中实例化出来的
+  //       console.log(zhangsan1 instanceof Student);
+  //       console.log(lisi1 instanceof Student);
+
+
+        //继承  
+  //       function Person1(){
+		// 	this.name='zhangsan';
+		// 	this.age='20';
+		// 	this.sex='nan';
+		// 	this.aa=function(){
+		// 		alert('Person1中的构造函数的aa')
+		// 	}
+  //       }
+		// Person1.prototype={
+		//          sleep:function(){
+		//          	alert('休息')
+		//          },                
+		//          say:function(){
+		// 		    alert(this.name);
+		// 	     },
+		// 	     play:function(){
+		// 		    alert(`${this.name}玩儿`);
+		// 	     },
+		// 	     son:function(){
+
+		// 	     }
+		// }
+		// Person1.prototype.aa=function(){
+		// 		alert('Person1中的原型的aa')
+		// 	}
+		//  function Student1(){
+  //       	this.classes='wuif1707-1';
+  //       	this.number='wuif1707001';
+  //       	this.study=function(){
+  //       		alert('学习')
+  //       	}
+  //       	this.aa=function(){
+		// 		alert('Student1中的构造函数的aa')
+		// 	}
+  //       } 
+  //        Student1.prototype= new Person1();
+  //       Student1.prototype.aa=function(){
+		// 		alert('Student1中的原型的aa')
+		// 	}
+       
+  //       //let zhangsan2 = new Person1();
+  //       let lisi2 = new Student1();
+        
+  //       console.log(lisi2);
+  //       //zhangsan2.aa();
+  //      //lisi2.aa();
+  //       console.log(lisi2.__proto__== Student1.prototype);//对象有的属性 指向构造函数的原型中 lisi2.__proto__== Student1.prototype
+  
+
+ 
+
+     //字符串
+     let str='abdgffbf123bf1';
+     // console.log(str.__proto__);
+     // console.log(str.charAt(2));
+     // console.log(str.charCodeAt(3));
+     // console.log(String.fromCharCode(99));
+     // console.log(str.indexOf('bf')) ;
+     // console.log(str.lastIndexOf('bf')) ;
+     // console.log(str.includes('bf')) ;
+     // console.log(str.includes('bg')) ;
+     // console.log(str.slice(2,6));
+     // console.log(str.slice(2,-1));
+     // console.log(str.slice(2,str.length-1));
+     // console.log(str.substr(2,4));
+    
+  
+
+     function replaceall(str,rstr){
+     	// let star = '';
+     	// for(let i=0;i<rstr.length;i++){
+     	// 	star+='*';
+     	// }
+     	let star='*'.repeat(rstr.length);
+     	while(str.includes(rstr)){
+     		str=str.replace(rstr,star);
+            
+     	}
+     	return str;
+        }
+        console.log(replaceall(str,'bf1'));
+      
+        let url='https://www.baidu.comhttps://www.baidu.comhttps://www.baidu.comhttps://www.baidu.comhttps://www.baidu.comhttps://www.baidu.comhttps://www.baidu.comhttps://www.baidu.comhttps://www.baidu.comhttps://www.baidu.com';
+        function indexall(str,nstr){
+        	let star='*'.repeat(nstr.length);
+        	let n=[];
+        	while(str.includes(nstr)){
+        		
+        		n[n.length]=str.indexOf(nstr);
+
+        		str=str.replace(nstr,star);
+        		
+        	}
+
+        	 return n;
+        }
+        console.log(indexall(url,'baidu'));
+        console.log(url);
+        function indexalll(str,nstr){
+        	let arr=[];
+        	for(let i=0;i<str.length;i++){
+                   
+        		let a=str.slice(i,i+nstr.length);//substr(i,nstr.length);
+        		if(a==nstr){
+        			arr.push(i);
+        		}
+        	}
+        	return arr;
+        }
+        console.log(indexalll(url,'baidu'));
+        console.log(url);
+	</script>
+</body>
+</html>
