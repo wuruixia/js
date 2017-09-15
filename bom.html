@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>9.15</title>
+    <style>
+       button{
+       	padding: 8px 5px;
+       	background: pink;
+       	border-radius: 4px;
+       	border: 0;
+       	color: #fff;
+       	font-size: 14px;
+       }
+       h1{
+       	text-align: center;
+       
+       }
+    </style>
+</head>
+<body>
+     <h1><a href="../html/新建文件夹 (2)/left.html">欢迎来到我的主页</a></h1>
+     <button id=foward>前进</button>
+     <button id=back>后退</button>
+     <button id=refresh>刷新</button>
+	<script>
+     let foward=document.getElementById('foward');
+     let back=document.getElementById('back');
+      alert(history.length);
+     foward.onclick=function(){
+     	history.go(1);
+     }
+     
+     back.onclick=function(){
+     	history.go(-1);
+     }
+
+		// alert(window.screenLeft);//左
+		// alert(window.screenX);//左
+		// alert(window.screenTop);//上
+		// alert(window.screenY);//上
+		// alert(window.innerHeight);//视口的高度
+		// alert(window.innerWidth);//视口的宽度
+		// alert(window.outerWidth);//浏览器的宽度
+		// alert(window.onterHeight);//浏览器的宽度
+		// alter(document.documentElement.clientWidth)// 兼容性
+		// alter(document.documentElement.clientHeight)// 兼容性
+		// window.top //获取某一个窗口的顶层窗口
+		// window.parent// 获取子窗口的父窗口 
+		// window.self//获取自己本身
+		// window.frames//获取所有子窗口
+		// moveTo(x, y)；
+		// moveBy(dx, dy);
+		// resizeTo(width, height);
+
+		//方法
+		//时间函数(写动画)
+		// window.setInterval(function(回调函数){//按照某一个周期不停地执行某一个函数
+
+		// },1000)//最小是4)    
+  //       window.setInterval(fn,1000);
+  //       window.setInterval((=>{alert(1)},1000));
+  //       window.clearInterval()//清掉时间函数
+  //       setTimeout(fn,1000);//在指定的周期之后只执行一次
+
+           // var fn=function(){
+           // 	alert(1);
+           // 	window.setTimeout(fn,1000);
+           // }
+           // fn();
+           
+           // confirm('question')//带有确定和取消的提示框 ，有自己的值
+           // open('地址','窗口的名字','窗口的修饰','是否有历史记录')//打开
+           // close()//关闭
+           // 
+           // 
+           //历史记录
+           //history.back();//
+           //history.go();//
+           //history.forward();// 
+           //url:uniform resource locator//统一资源定位符
+           //location.href       获取地址
+           //location.protocol  协议
+           //location.host      主机
+           //location.hostname   主机名
+           //location.port       端口   /s
+           //location.pathname    路径
+           //location.search      查询  ？以后的部分，
+           //location.hash         锚点 
+           //location.assign()    加载新的页面，会留下历史记录
+           //location.reload()    重新加载 true/false 
+           //location.replace()    替换(替换当前页面，不会留下历史记录)
+
+           location.href='http.baidu.com'
+         
+	</script>
+</body>
+</html>
