@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>9.14</title>
+</head>
+<body>
+	<script>
+
+	    let arr=[1,3,5,6,8,6,3,5]
+	    arr.sort(function(a,b){
+			return a-b<0;
+		})
+	    console.log(arr);
+
+		let arr3 = Array.of(5);
+        let arr4=new Array(6);
+		console.log(arr3);
+		console.log(arr4);
+		let arr1=[1,2,3,5,6];
+		let arr2=['a','b','c'];
+		arr1.push(...arr2);
+		arr1.unshift(...arr2);
+		arr1.shift();
+		arr1.pop();
+		arr1.splice(2,2,'x','y');
+		console.log(arr1);
+		let aa=(num)=>{
+			return {name:num}
+		}
+        console.log(aa('zhangsan'));
+
+        //去重
+		let arr5=[1,5,6,7,1,4,5,7,8] ;
+		// let newarr=[];
+		// function delrepeat(arr){
+		// 	for(let i=0;i<arr.length;i++){
+		// 	if(!newarr.includes(arr[i])){
+		// 		newarr.push(arr[i]);
+		// 	}
+		//     }
+		//     return newarr;
+  //       }
+  //       console.log(delrepeat(arr5));
+        
+        let newarr1=[];
+        function delrepeat1(arr){
+        	for (let i=0;i<arr.length;i++){
+        		let flag=true;
+        		for (let j=i+1;j<arr.length;j++){
+        		    if(arr[i]==arr[j]){
+        			     flag=false;
+        			      break;
+        		    }
+        	    }
+        	
+        	    if(flag){
+        	     newarr1.push(arr[i]);
+                }
+            }
+            return newarr1;
+        }
+        console.log(delrepeat1(arr5));
+       Array.prototype.delrepeat=function(){
+       	   let newarr=[];
+       	   for(let i=0;i<this.length;i++){
+			if(!newarr.includes(this[i])){
+				newarr.push(this[i]);
+			}
+		    }
+		    return newarr;
+       }
+       let result=arr5.delrepeat();
+       console.log(result);
+
+
+
+       //math
+       console.log(Math.ceil(-5.3));  //-5  向上取整
+       console.log(Math.ceil(-5.6));  //-5  向上取整
+       console.log(Math.ceil(5.6));  //6  向上取整
+       console.log(Math.ceil(5.3));  //6  向上取整
+       console.log(Math.floor(-5.6));  //-5  向上取整
+       console.log(Math.random()*10);  //  随机数（0~10）
+       console.log(Math.random());  //  随机数（0~1）
+       console.log(Math.pow(2,4));  //  2^4=16
+       console.log(Math.sqrt(4));  //  2^2=4
+       console.log(Math.sin());  //  
+
+      
+      // function color(){
+      //   let str='rgb(';
+      //   for(let i=0;i<3;i++){
+      	
+      	
+      //   }
+
+         
+      // }
+      // let box=document.getElementById('box');
+      // box.onmouseover=function(){
+      //    box.style.background=color();
+      // }
+      
+
+
+
+      let arr6=[5,8,6,3,5,8,93,586,2,5,2];
+      let newarr2=[];
+      function shuiji(arr,num){
+      	for(i=0;i<num;i++){
+         let t=Math.floor(Math.random()*arr.length);
+         if(newarr2.includes(arr[t])){
+             i--;
+         }else{
+         	newarr2.push(arr[t]);
+         }
+
+      	}
+      	
+         return newarr2;
+      }
+      console.log(shuiji(arr6,3));
+      function suiji(arr,num){
+      	let newarr=[];
+      	while(newarr.length<num){
+      		let t=Math.floor(Math.random()*arr.length);
+      		if(!newarr.includes(arr[t])){
+      			newarr.push(arr[t]);
+      		}
+      	}
+      	return newarr;
+      }
+      console.log(suiji(arr6,4))
+	</script>
+</body>
+</html>
